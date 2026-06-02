@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desarrollo Web & Automatización</title>
 
-    <!-- Fuentes: Inter (Corporativa y limpia), Caveat (Anotaciones a mano) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap"
       rel="stylesheet"
@@ -48,7 +47,6 @@
         padding: 0 2rem;
       }
 
-      /* Nota Técnica Superior */
       .tech-notice {
         background-color: var(--ink-dark);
         color: var(--paper-bg);
@@ -89,7 +87,6 @@
         color: var(--accent-blue);
       }
 
-      /* Encabezado */
       .header-section {
         display: flex;
         justify-content: space-between;
@@ -130,7 +127,6 @@
         border: 1px solid var(--ink-dark);
       }
 
-      /* Secciones de Contenido */
       .section-title {
         font-size: 1.4rem;
         margin: 0 0 1.5rem 0;
@@ -152,7 +148,6 @@
         margin-bottom: 2rem;
       }
 
-      /* Listas de Inclusiones / Exclusiones */
       .scope-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -197,7 +192,6 @@
         display: block;
       }
 
-      /* Tabla de Módulos Opcionales */
       .modules-table {
         width: 100%;
         border-collapse: collapse;
@@ -236,7 +230,6 @@
         padding-left: 1rem;
       }
 
-      /* Términos y Condiciones */
       .terms-container {
         column-count: 2;
         column-gap: 2rem;
@@ -275,7 +268,6 @@
         text-align: justify;
       }
 
-      /* Footer */
       .doc-footer {
         margin-top: 2rem;
         text-align: center;
@@ -288,7 +280,6 @@
         margin-bottom: 0.5rem;
       }
 
-      /* Ajustes de Impresión PDF */
       @media print {
         body {
           background: #ffffff;
@@ -301,7 +292,6 @@
           padding: 1rem;
         }
         .tech-notice {
-          /* Mantenemos la nota técnica visible en el PDF para demostrar el valor */
           background-color: var(--paper-bg) !important;
           color: var(--ink-dark) !important;
           border: 2px solid var(--ink-dark);
@@ -322,16 +312,10 @@
           page-break-before: always;
         }
       }
-
-      /* Ocultar citas de IA para el cliente */
-      .hide-cite {
-        display: none !important;
-      }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- Encabezado Estructural -->
       <header class="header-section">
         <div class="title-block">
           <h1>Propuesta de Desarrollo Web</h1>
@@ -359,7 +343,6 @@
         </p>
 
         <div class="scope-grid">
-          <!-- Lo que SÍ incluye -->
           <div class="scope-list includes">
             <h3>
               <i class="fa-solid fa-check-circle"></i> Entregables (Incluye)
@@ -386,7 +369,7 @@
               <div>
                 <strong>Diseño 100% Responsive</strong><br />Adaptación nativa y
                 fluida para visualización en Smartphones, Tablets y Computadoras
-                de escritorio<span class="hide-cite">[cite: 1]</span>.
+                de escritorio.
               </div>
             </div>
             <div class="scope-item">
@@ -401,10 +384,8 @@
               <i class="fa-solid fa-check"></i>
               <div>
                 <strong>Integración de Formularios & Tracking</strong
-                ><br />Formulario de contacto básico<span class="hide-cite"
-                  >[cite: 1]</span
-                >
-                e instalación en código del Píxel de Meta y/o Google Ads.
+                ><br />Formulario de contacto básico e instalación en código del
+                Píxel de Meta y/o Google Ads.
               </div>
             </div>
             <div class="scope-item">
@@ -412,14 +393,11 @@
               <div>
                 <strong>Garantía y Entrega</strong><br />Reunión virtual de
                 entrega (30 min) y soporte técnico gratuito por fallos durante
-                los 7 días posteriores a la publicación<span class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                los 7 días posteriores a la publicación.
               </div>
             </div>
           </div>
 
-          <!-- Lo que NO incluye -->
           <div class="scope-list excludes">
             <h3>
               <i class="fa-solid fa-times-circle"></i> Exclusiones (No Incluye)
@@ -430,9 +408,7 @@
               <div>
                 <strong>Dominio y Hosting</strong><br />La compra y renovación
                 anual del nombre del dominio (.com/.pe) y del servidor de
-                alojamiento corren por cuenta del cliente<span class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                alojamiento corren por cuenta del cliente.
               </div>
             </div>
             <div class="scope-item">
@@ -441,9 +417,7 @@
                 <strong>Fotografía, Video o Branding</strong><br />No incluye
                 creación de logotipos ni sesiones fotográficas. De no contar con
                 fotos propias, se utilizará material de banco de imágenes
-                genérico o generado por IA<span class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                genérico o generado por IA.
               </div>
             </div>
             <div class="scope-item">
@@ -451,7 +425,7 @@
               <div>
                 <strong>Pasarelas de Pago Complejas</strong><br />El plan base
                 no contempla carritos de compra ni integración con métodos de
-                pago con tarjeta<span class="hide-cite">[cite: 1]</span>.
+                pago con tarjeta.
               </div>
             </div>
             <div class="scope-item">
@@ -459,7 +433,7 @@
               <div>
                 <strong>Licencias Premium de Terceros</strong><br />Cualquier
                 plugin, tipografía de pago o software externo requerido será
-                facturado por separado<span class="hide-cite">[cite: 1]</span>.
+                facturado por separado.
               </div>
             </div>
             <div class="scope-item">
@@ -527,10 +501,7 @@
                 <span class="module-desc"
                   >Desarrollo de bloques informativos o páginas internas
                   adicionales (Ej: "Políticas de Privacidad", "Blog", etc.) que
-                  excedan el límite de 5 secciones del plan base<span
-                    class="hide-cite"
-                    >[cite: 1]</span
-                  >.</span
+                  excedan el límite de 5 secciones del plan base.</span
                 >
               </td>
               <td class="module-price handwritten">
@@ -561,16 +532,11 @@
                 <strong>NO inicia con el pago</strong>, sino únicamente cuando
                 el cliente haya enviado el 100% del material requerido: Logo
                 (alta calidad), textos corporativos base, fotografías,
-                referencias y accesos de hosting<span class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                referencias y accesos de hosting.
               </li>
               <li>
                 El cliente tiene un plazo máximo de 5 días calendario tras la
-                contratación para enviar dichos requerimientos<span
-                  class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                contratación para enviar dichos requerimientos.
               </li>
             </ul>
           </div>
@@ -580,16 +546,13 @@
             <ul>
               <li>
                 Cualquier retraso en la entrega de información por parte del
-                cliente pausará inmediatamente el cronograma de desarrollo<span
-                  class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                cliente pausará inmediatamente el cronograma de desarrollo.
               </li>
               <li>
                 Si el cliente inasiste a reuniones o retrasa aprobaciones sin
                 justificación, impidiendo finalizar el proyecto, se aplicará una
                 penalidad del 5% sobre el costo total por cada día extra
-                necesario<span class="hide-cite">[cite: 2]</span>.
+                necesario.
               </li>
             </ul>
           </div>
@@ -602,15 +565,12 @@
               <li>
                 El plan base incluye un máximo de
                 <strong>dos (2) rondas de ajustes</strong> sobre el diseño y
-                contenido presentado<span class="hide-cite">[cite: 1]</span>.
+                contenido presentado.
               </li>
               <li>
                 Una vez aprobadas las rondas correspondientes, las solicitudes
                 de modificaciones adicionales o cambios estructurales fuera del
-                alcance inicial serán cotizadas por separado<span
-                  class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                alcance inicial serán cotizadas por separado.
               </li>
             </ul>
           </div>
@@ -625,13 +585,13 @@
                 Para iniciar el desarrollo se requiere un
                 <strong>adelanto del 60%</strong> del monto total. El 40%
                 restante deberá ser cancelado el día de la entrega y aprobación
-                final del proyecto<span class="hide-cite">[cite: 2]</span>.
+                final del proyecto.
               </li>
               <li>
                 Si el cliente decide cancelar el proyecto a la mitad del proceso
                 por motivos ajenos al desarrollador, el adelanto no será
                 reembolsable y se calculará el monto correspondiente al trabajo
-                avanzado<span class="hide-cite">[cite: 2]</span>.
+                avanzado.
               </li>
             </ul>
           </div>
@@ -643,17 +603,14 @@
             <ul>
               <li>
                 Se creará un grupo de WhatsApp que fungirá como único canal
-                oficial para solicitudes y envío de material<span
-                  class="hide-cite"
-                  >[cite: 2]</span
-                >.
+                oficial para solicitudes y envío de material.
               </li>
               <li>
                 El horario de atención para consultas, reuniones y soporte
                 técnico es de
-                <strong>Lunes a Viernes, de 09:00 a 18:00 hrs</strong
-                ><span class="hide-cite">[cite: 2]</span>. Toda solicitud fuera
-                de este horario será atendida el día hábil siguiente.
+                <strong>Lunes a Viernes, de 09:00 a 18:00 hrs</strong>. Toda
+                solicitud fuera de este horario será atendida el día hábil
+                siguiente.
               </li>
             </ul>
           </div>
@@ -665,14 +622,12 @@
             <ul>
               <li>
                 Al liquidar el 100% del pago, el cliente obtiene el control
-                total y la propiedad de su sitio web<span class="hide-cite"
-                  >[cite: 1]</span
-                >.
+                total y la propiedad de su sitio web.
               </li>
               <li>
                 El desarrollador retiene el derecho de exhibir el sitio web
                 finalizado en su portafolio profesional y utilizarlo con fines
-                de promoción comercial<span class="hide-cite">[cite: 2]</span>.
+                de promoción comercial.
               </li>
             </ul>
           </div>
@@ -687,8 +642,10 @@
           programado y diseñado desde cero como una Landing Page 100% responsiva
           para demostrar la calidad del código. <br />
           Puedes interactuar con la versión web funcional en:
-          <a href="https://[TU_ENLACE_AQUI].com" target="_blank"
-            >www.[TU_ENLACE_AQUI].com</a
+          <a
+            href="https://landing-page-lyart-three-70.vercel.app/"
+            target="_blank"
+            >https://landing-page-lyart-three-70.vercel.app/</a
           >
         </div>
       </div>
