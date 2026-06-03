@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desarrollo Web & Automatización</title>
-
+    <title>José Luis Cuenca · Desarrollo Web & Automatización</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap"
       rel="stylesheet"
@@ -13,669 +12,1389 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
     <style>
+      /* ═══════════════════════════════════════════════════
+       VARIABLES & RESET
+    ═══════════════════════════════════════════════════ */
       :root {
-        --ink-dark: #0f172a;
-        --ink-light: #475569;
-        --ink-muted: #94a3b8;
-        --accent-blue: #2563eb;
-        --marker-yellow: #fef08a;
-        --paper-bg: #f8fafc;
-        --grid-color: #cbd5e1;
-        --success: #16a34a;
-        --danger: #dc2626;
+        --dark: #0f172a;
+        --dark2: #1e293b;
+        --light: #475569;
+        --muted: #94a3b8;
+        --blue: #2563eb;
+        --yellow: #fef08a;
+        --yellow2: #facc15;
+        --bg: #f8fafc;
+        --grid: #e2e8f0;
+        --green: #16a34a;
+        --red: #dc2626;
+        --white: #ffffff;
+        --radius: 6px;
+        --shadow: 6px 6px 0 #e2e8f0;
       }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: var(--paper-bg);
-        background-image: radial-gradient(
-          var(--grid-color) 1.5px,
-          transparent 1.5px
-        );
-        background-size: 25px 25px;
-        color: var(--ink-dark);
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        background-image: radial-gradient(var(--grid) 1.5px, transparent 1.5px);
+        background-size: 24px 24px;
+        color: var(--dark);
         line-height: 1.6;
+        overflow-x: hidden;
+      }
+      .hw {
+        font-family: "Caveat", cursive;
       }
 
-      .container {
-        max-width: 900px;
-        margin: 2rem auto 3rem auto;
-        padding: 0 2rem;
+      /* ═══════════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════════ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(15, 23, 42, 0);
+        backdrop-filter: blur(0);
+        border-bottom: 1px solid transparent;
+        transition:
+          background 0.3s,
+          backdrop-filter 0.3s,
+          border-color 0.3s;
       }
-
-      .tech-notice {
-        background-color: var(--ink-dark);
-        color: var(--paper-bg);
-        padding: 1rem 1.5rem;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        margin-bottom: 2.5rem;
+      .nav.scrolled {
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(14px);
+        border-color: rgba(255, 255, 255, 0.07);
+      }
+      .nav-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 64px;
         display: flex;
         align-items: center;
-        gap: 12px;
-        box-shadow: 4px 4px 0px var(--grid-color);
+        justify-content: space-between;
+        gap: 1rem;
       }
-
-      .tech-notice i {
-        font-size: 1.5rem;
-        color: var(--marker-yellow);
-      }
-
-      .tech-notice a {
-        color: var(--marker-yellow);
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         text-decoration: none;
+      }
+      .nav-logo-mark {
+        width: 36px;
+        height: 36px;
+        background: var(--yellow);
+        color: var(--dark);
+        font-family: "Caveat", cursive;
+        font-size: 1.2rem;
         font-weight: 700;
-        border-bottom: 1px dashed var(--marker-yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+      }
+      .nav-logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+      .nav-logo-name {
+        font-size: 0.88rem;
+        font-weight: 800;
+        color: #fff;
+      }
+      .nav-logo-role {
+        font-size: 0.62rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .nav-links {
+        display: flex;
+        gap: 0.2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        border-radius: 4px;
+        transition:
+          color 0.2s,
+          background 0.2s;
+      }
+      .nav-links a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: var(--yellow);
+        color: var(--dark);
+        padding: 0.45rem 1.1rem;
+        border-radius: 4px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+        white-space: nowrap;
+      }
+      .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
+      }
+      .nav-cta i {
+        color: #25d366;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.4rem;
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 64px 0 0 0;
+        background: rgba(15, 23, 42, 0.97);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        z-index: 99;
+      }
+      .mobile-menu.open {
+        display: flex;
+        animation: fadeIn 0.25s ease;
+      }
+      .mobile-menu a {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .mobile-menu a:hover {
+        color: var(--yellow);
+      }
+      .mobile-menu .nav-cta {
+        font-size: 1rem;
+        padding: 0.7rem 2rem;
       }
 
-      .wireframe-box {
-        background: #ffffff;
-        border: 2px solid var(--ink-dark);
-        border-radius: 4px;
-        box-shadow: 8px 8px 0px #e2e8f0;
-        padding: 2.5rem;
-        margin-bottom: 3rem;
+      /* ═══════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════ */
+      .hero {
+        min-height: 100svh;
+        background: var(--dark);
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        );
+        background-size: 22px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 7rem 1.5rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      /* glow blob */
+      .hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .hero-blob-1 {
+        width: 500px;
+        height: 500px;
+        background: var(--blue);
+        top: -150px;
+        left: -100px;
+      }
+      .hero-blob-2 {
+        width: 400px;
+        height: 400px;
+        background: var(--yellow2);
+        bottom: -100px;
+        right: -80px;
+      }
+      .hero-stripe {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--yellow);
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 99px;
+        padding: 0.3rem 1rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 1.8rem;
+        opacity: 0;
+        transform: translateY(16px);
+        animation: fadeUp 0.6s 0.1s forwards;
+      }
+      .hero-eyebrow .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: pulse 2s infinite;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 7vw, 5rem);
+        font-weight: 800;
+        letter-spacing: -3px;
+        line-height: 1.02;
+        color: #fff;
+        margin-bottom: 1.2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.7s 0.25s forwards;
+      }
+      .hero h1 .accent {
+        color: var(--yellow);
+        display: inline-block;
         position: relative;
       }
-
-      .handwritten {
-        font-family: "Caveat", cursive;
-        color: var(--accent-blue);
+      .hero-sub {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 480px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.7;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.7s 0.4s forwards;
       }
-
-      .header-section {
+      .hero-actions {
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        border-bottom: 2px solid var(--ink-dark);
-        padding-bottom: 1.5rem;
-        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.7s 0.55s forwards;
       }
-
-      .title-block h1 {
-        font-size: 2.2rem;
-        font-weight: 800;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: -1px;
-      }
-
-      .title-block p {
-        font-size: 0.95rem;
-        color: var(--ink-light);
-        margin: 0.5rem 0 0 0;
-        font-weight: 600;
-        letter-spacing: 2px;
-      }
-
-      .meta-info {
-        text-align: right;
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--yellow);
+        color: var(--dark);
+        padding: 0.75rem 1.6rem;
+        border-radius: 5px;
         font-size: 0.9rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+        border: 2px solid var(--yellow);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(250, 204, 21, 0.4);
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0.75rem 1.6rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          transform 0.15s;
+      }
+      .btn-outline:hover {
+        border-color: rgba(255, 255, 255, 0.6);
+        color: #fff;
+        transform: translateY(-3px);
+      }
+      .btn-outline i {
+        color: #25d366;
       }
 
-      .badge-note {
-        display: inline-block;
-        background: var(--marker-yellow);
-        padding: 0.2rem 1rem;
-        font-size: 1.4rem;
-        transform: rotate(-2deg);
-        margin-top: 0.5rem;
-        border: 1px solid var(--ink-dark);
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeUp 0.7s 0.7s forwards;
+      }
+      .stat-item {
+        padding: 1.1rem 2rem;
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background 0.2s;
+      }
+      .stat-item:last-child {
+        border-right: none;
+      }
+      .stat-item:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .stat-value {
+        display: block;
+        font-family: "Caveat", cursive;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--yellow);
+        line-height: 1;
+      }
+      .stat-label {
+        display: block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 4px;
       }
 
-      .section-title {
-        font-size: 1.4rem;
-        margin: 0 0 1.5rem 0;
+      /* ═══════════════════════════════════════════════════
+       SECTION WRAPPER
+    ═══════════════════════════════════════════════════ */
+      .section {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 5rem 1.5rem;
+      }
+      .section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 0.7rem;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        border-bottom: 2px dashed var(--grid-color);
-        padding-bottom: 0.5rem;
+        gap: 8px;
       }
-
-      .price-tag {
-        font-size: 2.5rem;
-        margin: 0;
+      .section-label::before {
+        content: "";
+        flex: 0 0 28px;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 2px;
       }
-
-      .description {
-        color: var(--ink-light);
+      .section-heading {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 0.6rem;
+        line-height: 1.15;
+      }
+      .section-sub {
+        color: var(--light);
         font-size: 0.95rem;
+        max-width: 520px;
+        margin-bottom: 3rem;
+      }
+
+      /* ═══════════════════════════════════════════════════
+       CARD
+    ═══════════════════════════════════════════════════ */
+      .card {
+        background: var(--white);
+        border: 2px solid var(--dark);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 2rem;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 9px 9px 0 #e2e8f0;
+      }
+
+      /* ═══════════════════════════════════════════════════
+       SERVICIOS
+    ═══════════════════════════════════════════════════ */
+      .service-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .service-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+      }
+      .service-price {
+        font-family: "Caveat", cursive;
+        font-size: 2.8rem;
+        color: var(--blue);
+        line-height: 1;
+      }
+      .service-desc {
+        color: var(--light);
+        font-size: 0.92rem;
         margin-bottom: 2rem;
       }
 
       .scope-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
       }
-
-      .scope-list h3 {
-        font-size: 1.1rem;
-        margin-top: 0;
-        margin-bottom: 1rem;
+      .scope-col h3 {
+        font-size: 0.85rem;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 7px;
       }
-
-      .scope-list.includes h3 {
-        color: var(--success);
+      .scope-col.yes h3 {
+        color: var(--green);
       }
-      .scope-list.excludes h3 {
-        color: var(--danger);
+      .scope-col.no h3 {
+        color: var(--red);
+      }
+      .scope-divider {
+        height: 2px;
+        background: var(--grid);
+        margin-bottom: 1.5rem;
+        border-radius: 2px;
       }
 
       .scope-item {
         display: flex;
         align-items: flex-start;
         gap: 10px;
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-        color: var(--ink-light);
+        font-size: 0.88rem;
+        color: var(--light);
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition:
+          opacity 0.4s,
+          transform 0.4s;
       }
-
-      .includes .scope-item i {
-        color: var(--success);
-        margin-top: 4px;
+      .scope-item.visible {
+        opacity: 1;
+        transform: none;
       }
-      .excludes .scope-item i {
-        color: var(--danger);
-        margin-top: 4px;
+      .scope-col.no .scope-item {
+        transform: translateX(10px);
       }
-
-      .scope-item strong {
-        color: var(--ink-dark);
-        display: block;
-      }
-
-      .modules-table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      .modules-table th {
-        text-align: left;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid var(--ink-dark);
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        color: var(--ink-light);
-      }
-
-      .modules-table td {
-        padding: 1.5rem 0;
-        border-bottom: 1px dashed var(--grid-color);
-      }
-
-      .module-title {
-        font-weight: 700;
-        font-size: 1rem;
-        display: block;
-        margin-bottom: 0.2rem;
-      }
-
-      .module-desc {
-        font-size: 0.85rem;
-        color: var(--ink-light);
-      }
-
-      .module-price {
-        text-align: right;
-        font-size: 1.8rem;
-        white-space: nowrap;
-        padding-left: 1rem;
-      }
-
-      .terms-container {
-        column-count: 2;
-        column-gap: 2rem;
-      }
-
-      .term-block {
-        break-inside: avoid;
-        margin-bottom: 1.5rem;
-        background: var(--paper-bg);
-        border: 1px solid var(--grid-color);
-        padding: 1.2rem;
-        border-radius: 2px;
-      }
-
-      .term-block h4 {
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        margin: 0 0 0.8rem 0;
-        color: var(--ink-dark);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        border-bottom: 1px solid var(--grid-color);
-        padding-bottom: 0.5rem;
-      }
-
-      .term-block ul {
-        margin: 0;
-        padding-left: 1.2rem;
-        color: var(--ink-light);
+      .scope-item-icon {
+        margin-top: 3px;
+        flex-shrink: 0;
         font-size: 0.8rem;
       }
-
-      .term-block li {
-        margin-bottom: 0.5rem;
-        text-align: justify;
+      .scope-col.yes .scope-item-icon {
+        color: var(--green);
+      }
+      .scope-col.no .scope-item-icon {
+        color: var(--red);
+      }
+      .scope-item strong {
+        display: block;
+        color: var(--dark);
+        margin-bottom: 2px;
       }
 
-      .doc-footer {
-        margin-top: 2rem;
+      /* ═══════════════════════════════════════════════════
+       MÓDULOS
+    ═══════════════════════════════════════════════════ */
+      .modules-bg {
+        background: var(--dark);
+      }
+      .modules-bg .section-label {
+        color: var(--yellow);
+      }
+      .modules-bg .section-label::before {
+        background: var(--yellow);
+      }
+      .modules-bg .section-heading {
+        color: #fff;
+      }
+      .modules-bg .section-sub {
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .modules-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .module-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        padding: 1.8rem;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          border-color 0.2s;
+        cursor: default;
+      }
+      .module-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-4px);
+        border-color: rgba(250, 204, 21, 0.4);
+      }
+      .module-card-icon {
+        font-size: 1.4rem;
+        color: var(--yellow);
+        margin-bottom: 1rem;
+      }
+      .module-card-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .module-card-desc {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.65;
+      }
+      .module-card-price {
+        margin-top: 1.5rem;
+        font-family: "Caveat", cursive;
+        font-size: 1.8rem;
+        color: var(--yellow);
+      }
+
+      /* ═══════════════════════════════════════════════════
+       TÉRMINOS
+    ═══════════════════════════════════════════════════ */
+      .terms-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+      .term-card {
+        background: var(--white);
+        border: 1.5px solid var(--grid);
+        border-radius: var(--radius);
+        padding: 1.4rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .term-card:hover {
+        border-color: var(--dark);
+        transform: translateY(-3px);
+        box-shadow: 4px 4px 0 var(--grid);
+      }
+      .term-card h4 {
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-bottom: 0.7rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid var(--grid);
+      }
+      .term-card h4 i {
+        color: var(--blue);
+      }
+      .term-card ul {
+        padding-left: 1.1rem;
+        color: var(--light);
+        font-size: 0.78rem;
+      }
+      .term-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.55;
+      }
+
+      /* ═══════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════ */
+      .footer {
+        background: var(--dark);
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 22px 22px;
+        position: relative;
+        overflow: hidden;
+      }
+      .footer-stripe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--yellow);
+      }
+      .footer-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 3rem;
+        align-items: start;
+      }
+      .footer-name {
+        font-family: "Caveat", cursive;
+        font-size: 3rem;
+        color: var(--yellow);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .footer-role {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 1.5rem;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .footer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--yellow);
+      }
+      .footer-link i {
+        width: 16px;
         text-align: center;
-        border-top: 2px solid var(--ink-dark);
-        padding-top: 2rem;
+      }
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: flex-end;
+      }
+      .footer-nav a {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-nav a:hover {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .footer-copy {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem 2rem;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
-      .signature {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+      /* ═══════════════════════════════════════════════════
+       SCROLL ANIMATIONS
+    ═══════════════════════════════════════════════════ */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(30px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal-left.visible,
+      .reveal-right.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .delay-1 {
+        transition-delay: 0.1s !important;
+      }
+      .delay-2 {
+        transition-delay: 0.2s !important;
+      }
+      .delay-3 {
+        transition-delay: 0.3s !important;
+      }
+      .delay-4 {
+        transition-delay: 0.4s !important;
       }
 
-      @media print {
-        body {
-          background: #ffffff;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
+      /* ═══════════════════════════════════════════════════
+       KEYFRAMES
+    ═══════════════════════════════════════════════════ */
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
         }
-        .container {
-          max-width: 100%;
-          margin: 0;
-          padding: 1rem;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
-        .tech-notice {
-          background-color: var(--paper-bg) !important;
-          color: var(--ink-dark) !important;
-          border: 2px solid var(--ink-dark);
-          box-shadow: none;
+        to {
+          opacity: 1;
         }
-        .tech-notice a {
-          color: var(--accent-blue) !important;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.4);
+          opacity: 0.5;
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════ */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-cta.desktop {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+
+        .hero h1 {
+          letter-spacing: -1.5px;
+        }
+        .hero-stats {
+          width: 100%;
+        }
+        .stat-item {
+          flex: 1 1 45%;
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stat-item:nth-child(odd) {
+          border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stat-item:last-child,
+        .stat-item:nth-last-child(2):nth-child(odd) {
           border-bottom: none;
         }
-        .tech-notice i {
-          color: var(--ink-dark) !important;
+
+        .scope-grid {
+          grid-template-columns: 1fr;
         }
-        .wireframe-box {
-          box-shadow: none;
-          margin-bottom: 1.5rem;
+        .modules-grid {
+          grid-template-columns: 1fr;
         }
-        .page-break {
-          page-break-before: always;
+        .terms-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .footer-nav {
+          align-items: flex-start;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section {
+          padding: 3.5rem 1.2rem;
+        }
+        .terms-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .btn-primary,
+        .btn-outline {
+          justify-content: center;
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <header class="header-section">
-        <div class="title-block">
-          <h1>Propuesta de Desarrollo Web</h1>
-          <p>LANDING PAGE & AUTOMATIZACIONES</p>
-        </div>
-        <div class="meta-info">
-          <strong>PROYECTO PARA:</strong> [Nombre de la Empresa / Cliente]<br />
-          <strong>FECHA DE EMISIÓN:</strong> [DD / MM / 202X]<br />
-          <div class="badge-note handwritten">Válido por 10 días</div>
-        </div>
-      </header>
+    <!-- ══ NAVBAR ═══════════════════════════════════════════════════ -->
+    <nav class="nav" id="navbar">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-mark">JL</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">José Luis Cuenca</span>
+            <span class="nav-logo-role">Dev & Automatizador</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#modulos">Módulos</a></li>
+          <li><a href="#terminos">Términos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a
+          href="https://wa.me/51954000387"
+          target="_blank"
+          class="nav-cta desktop"
+        >
+          <i class="fa-brands fa-whatsapp"></i> Contratar
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
-      <!-- Bloque 1: Alcance del Servicio -->
-      <div class="wireframe-box">
-        <div class="section-title">
-          <span style="font-weight: 800; font-size: 1.5rem"
-            >Landing Page de Alta Conversión</span
-          >
-          <span class="price-tag handwritten">S/ 800</span>
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#servicios" class="mobile-link">Servicios</a>
+      <a href="#modulos" class="mobile-link">Módulos</a>
+      <a href="#terminos" class="mobile-link">Términos</a>
+      <a href="#contacto" class="mobile-link">Contacto</a>
+      <a href="https://wa.me/51954000387" target="_blank" class="nav-cta">
+        <i class="fa-brands fa-whatsapp"></i> Contratar ahora
+      </a>
+    </div>
+
+    <!-- ══ HERO ════════════════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-stripe"></div>
+
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Landing Pages · Automatizaciones · Alta Conversión
+      </div>
+
+      <h1>
+        Desarrollo Web<br /><span class="accent">&amp; Automatización</span>
+      </h1>
+
+      <p class="hero-sub">
+        Sitios web de una sola página optimizados para captar clientes,
+        integrados con automatizaciones que trabajan por ti las 24 hrs.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/51954000387" target="_blank" class="btn-primary">
+          <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
+        </a>
+        <a href="#servicios" class="btn-outline">
+          Ver servicios <i class="fa-solid fa-arrow-down"></i>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value hw" data-count="7">5–7</span>
+          <span class="stat-label">Días de entrega</span>
         </div>
-        <p class="description">
-          Desarrollo estructural e implementación de una Landing Page (sitio web
-          de una sola vista) optimizada para la captación de prospectos y
-          redirección de tráfico publicitario.
+        <div class="stat-item">
+          <span class="stat-value hw">100%</span>
+          <span class="stat-label">Responsive</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value hw">S/ 800</span>
+          <span class="stat-label">Precio base</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value hw">7 días</span>
+          <span class="stat-label">Soporte incluido</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SERVICIOS ═════════════════════════════════════════════════ -->
+    <div id="servicios">
+      <div class="section">
+        <p class="section-label reveal">Paquete principal</p>
+        <h2 class="section-heading reveal delay-1">
+          ¿Qué incluye tu Landing Page?
+        </h2>
+        <p class="section-sub reveal delay-2">
+          Todo lo que necesitas para publicar, captar y medir, en un solo
+          paquete con precio fijo.
         </p>
 
-        <div class="scope-grid">
-          <div class="scope-list includes">
-            <h3>
-              <i class="fa-solid fa-check-circle"></i> Entregables (Incluye)
-            </h3>
-
-            <div class="scope-item">
-              <i class="fa-solid fa-check"></i>
-              <div>
-                <strong>Estructura UI/UX (Máx. 5 secciones)</strong><br />Diseño
-                distribuido en bloques estratégicos (Ej: Inicio, Beneficios,
-                Catálogo/Servicios, Nosotros, Contacto).
+        <div class="card reveal delay-3">
+          <div class="service-header">
+            <div>
+              <div class="service-title">Landing Page de Alta Conversión</div>
+              <div class="service-desc" style="margin-top: 0.4rem">
+                Desarrollo estructural e implementación de una Landing Page
+                optimizada para la captación de prospectos y redirección de
+                tráfico publicitario.
               </div>
             </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-check"></i>
-              <div>
-                <strong>Copywriting Persuasivo Integral</strong><br />Redacción
-                de textos orientados a elevar el valor percibido e incentivar la
-                acción del usuario.
-              </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-check"></i>
-              <div>
-                <strong>Diseño 100% Responsive</strong><br />Adaptación nativa y
-                fluida para visualización en Smartphones, Tablets y Computadoras
-                de escritorio.
-              </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-check"></i>
-              <div>
-                <strong>Enrutamiento Inteligente (WhatsApp)</strong><br />Botón
-                flotante global y configuración de enlaces dinámicos (el cliente
-                envía un mensaje predefinido según el botón que presione).
-              </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-check"></i>
-              <div>
-                <strong>Integración de Formularios & Tracking</strong
-                ><br />Formulario de contacto básico e instalación en código del
-                Píxel de Meta y/o Google Ads.
-              </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-check"></i>
-              <div>
-                <strong>Garantía y Entrega</strong><br />Reunión virtual de
-                entrega (30 min) y soporte técnico gratuito por fallos durante
-                los 7 días posteriores a la publicación.
-              </div>
-            </div>
+            <div class="service-price hw">S/ 800</div>
           </div>
 
-          <div class="scope-list excludes">
-            <h3>
-              <i class="fa-solid fa-times-circle"></i> Exclusiones (No Incluye)
-            </h3>
-
-            <div class="scope-item">
-              <i class="fa-solid fa-xmark"></i>
-              <div>
-                <strong>Dominio y Hosting</strong><br />La compra y renovación
-                anual del nombre del dominio (.com/.pe) y del servidor de
-                alojamiento corren por cuenta del cliente.
+          <div class="scope-grid">
+            <div class="scope-col yes">
+              <h3><i class="fa-solid fa-circle-check"></i> Incluye</h3>
+              <div class="scope-divider"></div>
+              <div class="scope-item">
+                <i class="fa-solid fa-check scope-item-icon"></i>
+                <div>
+                  <strong>Estructura UI/UX (Máx. 5 secciones)</strong>Diseño en
+                  bloques estratégicos: Inicio, Beneficios, Catálogo, Nosotros,
+                  Contacto.
+                </div>
+              </div>
+              <div class="scope-item">
+                <i class="fa-solid fa-check scope-item-icon"></i>
+                <div>
+                  <strong>Copywriting Persuasivo Integral</strong>Textos
+                  orientados a elevar el valor percibido e incentivar la acción
+                  del usuario.
+                </div>
+              </div>
+              <div class="scope-item">
+                <i class="fa-solid fa-check scope-item-icon"></i>
+                <div>
+                  <strong>Diseño 100% Responsive</strong>Adaptación fluida para
+                  Smartphones, Tablets y Computadoras de escritorio.
+                </div>
+              </div>
+              <div class="scope-item">
+                <i class="fa-solid fa-check scope-item-icon"></i>
+                <div>
+                  <strong>Enrutamiento Inteligente (WhatsApp)</strong>Botón
+                  flotante con mensajes predefinidos según el botón que presione
+                  el usuario.
+                </div>
+              </div>
+              <div class="scope-item">
+                <i class="fa-solid fa-check scope-item-icon"></i>
+                <div>
+                  <strong>Formularios & Tracking</strong>Formulario de contacto
+                  + instalación del Píxel de Meta y/o Google Ads.
+                </div>
+              </div>
+              <div class="scope-item">
+                <i class="fa-solid fa-check scope-item-icon"></i>
+                <div>
+                  <strong>Entrega + 7 días de soporte</strong>Reunión virtual de
+                  entrega (30 min) y soporte técnico gratuito post-lanzamiento.
+                </div>
               </div>
             </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-xmark"></i>
-              <div>
-                <strong>Fotografía, Video o Branding</strong><br />No incluye
-                creación de logotipos ni sesiones fotográficas. De no contar con
-                fotos propias, se utilizará material de banco de imágenes
-                genérico o generado por IA.
+            <div class="scope-col no">
+              <h3><i class="fa-solid fa-circle-xmark"></i> No incluye</h3>
+              <div class="scope-divider"></div>
+              <div class="scope-item">
+                <i class="fa-solid fa-xmark scope-item-icon"></i>
+                <div>
+                  <strong>Dominio y Hosting</strong>La compra y renovación del
+                  dominio (.com/.pe) y el servidor corren por cuenta del
+                  cliente.
+                </div>
               </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-xmark"></i>
-              <div>
-                <strong>Pasarelas de Pago Complejas</strong><br />El plan base
-                no contempla carritos de compra ni integración con métodos de
-                pago con tarjeta.
+              <div class="scope-item">
+                <i class="fa-solid fa-xmark scope-item-icon"></i>
+                <div>
+                  <strong>Fotografía, Video o Branding</strong>No incluye
+                  logotipos ni sesiones fotográficas. Se usa material de banco o
+                  generado por IA si no hay fotos propias.
+                </div>
               </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-xmark"></i>
-              <div>
-                <strong>Licencias Premium de Terceros</strong><br />Cualquier
-                plugin, tipografía de pago o software externo requerido será
-                facturado por separado.
+              <div class="scope-item">
+                <i class="fa-solid fa-xmark scope-item-icon"></i>
+                <div>
+                  <strong>Pasarelas de Pago</strong>El plan base no contempla
+                  carritos de compra ni pagos con tarjeta.
+                </div>
               </div>
-            </div>
-            <div class="scope-item">
-              <i class="fa-solid fa-xmark"></i>
-              <div>
-                <strong>Gestión de Campañas (Ads)</strong><br />Se instalan los
-                píxeles de medición, pero no incluye la creación, diseño ni
-                administración de los anuncios en redes sociales.
+              <div class="scope-item">
+                <i class="fa-solid fa-xmark scope-item-icon"></i>
+                <div>
+                  <strong>Licencias Premium</strong>Cualquier plugin, tipografía
+                  o software de pago se factura aparte.
+                </div>
+              </div>
+              <div class="scope-item">
+                <i class="fa-solid fa-xmark scope-item-icon"></i>
+                <div>
+                  <strong>Gestión de Campañas (Ads)</strong>Se instalan los
+                  píxeles, pero no se crean ni administran los anuncios.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Bloque 2: Módulos Extra -->
-      <div class="wireframe-box page-break">
-        <h2
-          class="section-title"
-          style="margin-bottom: 1rem; border-bottom: none"
+    <!-- ══ MÓDULOS ════════════════════════════════════════════════════ -->
+    <div class="modules-bg" id="modulos">
+      <div class="section">
+        <p class="section-label reveal">Add-ons opcionales</p>
+        <h2 class="section-heading reveal delay-1">Escala tu proyecto</h2>
+        <p
+          class="section-sub reveal delay-2"
+          style="color: rgba(255, 255, 255, 0.45)"
         >
-          Módulos de Escalabilidad (Opcionales)
-        </h2>
-        <table class="modules-table">
-          <thead>
-            <tr>
-              <th>Integraciones Adicionales</th>
-              <th style="text-align: right">Inversión Única</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <span class="module-title"
-                  >Mini-CRM Automatizado (Google Sheets)</span
-                >
-                <span class="module-desc"
-                  >Sistematización del formulario web. Cada registro ingresado
-                  se inyecta automáticamente en una base de datos en línea
-                  (Excel/Sheets), permitiendo al equipo comercial gestionar los
-                  prospectos en tiempo real sin perder correos.</span
-                >
-              </td>
-              <td class="module-price handwritten">+ S/ 150</td>
-            </tr>
-            <tr>
-              <td>
-                <span class="module-title"
-                  >Panel de Autogestión Dinámico (Fase Beta)</span
-                >
-                <span class="module-desc"
-                  >Conexión de la estructura gráfica de la web a un archivo de
-                  Excel. Otorga autonomía total al cliente para modificar
-                  precios, disponibilidad, textos y fotografías en tiempo real
-                  sin necesidad de tocar código ni requerir soporte
-                  técnico.</span
-                >
-              </td>
-              <td class="module-price handwritten">+ S/ 250</td>
-            </tr>
-            <tr>
-              <td>
-                <span class="module-title"
-                  >Expansión de Secciones o Pestañas</span
-                >
-                <span class="module-desc"
-                  >Desarrollo de bloques informativos o páginas internas
-                  adicionales (Ej: "Políticas de Privacidad", "Blog", etc.) que
-                  excedan el límite de 5 secciones del plan base.</span
-                >
-              </td>
-              <td class="module-price handwritten">
-                + S/ 50 <span style="font-size: 1rem">c/u</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          Potencia tu sitio con integraciones que se suman al plan base.
+        </p>
+
+        <div class="modules-grid">
+          <div class="module-card reveal delay-1">
+            <div class="module-card-icon">
+              <i class="fa-solid fa-table"></i>
+            </div>
+            <div class="module-card-title">Mini-CRM Automatizado</div>
+            <div class="module-card-desc">
+              Cada formulario se inyecta automáticamente en Google Sheets. Tu
+              equipo gestiona prospectos en tiempo real sin perder ningún lead.
+            </div>
+            <div class="module-card-price hw">+ S/ 150</div>
+          </div>
+          <div class="module-card reveal delay-2">
+            <div class="module-card-icon">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <div class="module-card-title">Panel de Autogestión</div>
+            <div class="module-card-desc">
+              Conecta tu web a Excel y modifica precios, textos y fotos en
+              tiempo real sin tocar código ni necesitar soporte técnico.
+              <em style="color: rgba(255, 255, 255, 0.3)">(Fase Beta)</em>
+            </div>
+            <div class="module-card-price hw">+ S/ 250</div>
+          </div>
+          <div class="module-card reveal delay-3">
+            <div class="module-card-icon">
+              <i class="fa-solid fa-plus-circle"></i>
+            </div>
+            <div class="module-card-title">Secciones o Pestañas Extra</div>
+            <div class="module-card-desc">
+              Páginas internas adicionales como "Políticas de Privacidad",
+              "Blog" u otras que superen el límite de 5 secciones del plan.
+            </div>
+            <div class="module-card-price hw">
+              + S/ 50
+              <span style="font-size: 1rem; font-family: &quot;Inter&quot;"
+                >c/u</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <!-- Bloque 3: Términos y Condiciones Legales -->
-      <div class="wireframe-box">
-        <h2
-          class="section-title"
-          style="margin-bottom: 1.5rem; border-bottom: none"
-        >
-          Términos, Condiciones y Políticas de Trabajo
-        </h2>
+    <!-- ══ TÉRMINOS ═══════════════════════════════════════════════════ -->
+    <div id="terminos">
+      <div class="section">
+        <p class="section-label reveal">Antes de contratar</p>
+        <h2 class="section-heading reveal delay-1">Términos y condiciones</h2>
+        <p class="section-sub reveal delay-2">
+          Políticas claras para una colaboración sin sorpresas.
+        </p>
 
-        <div class="terms-container">
-          <div class="term-block">
+        <div class="terms-grid">
+          <div class="term-card reveal delay-1">
             <h4>
               <i class="fa-solid fa-box-open"></i> 1. Entrega de Materiales
             </h4>
             <ul>
               <li>
-                El plazo de entrega (5 a 7 días hábiles)
-                <strong>NO inicia con el pago</strong>, sino únicamente cuando
-                el cliente haya enviado el 100% del material requerido: Logo
-                (alta calidad), textos corporativos base, fotografías,
+                El plazo <strong>NO inicia con el pago</strong>, sino cuando el
+                cliente envíe el 100% del material: logo, textos, fotos,
                 referencias y accesos de hosting.
               </li>
               <li>
-                El cliente tiene un plazo máximo de 5 días calendario tras la
-                contratación para enviar dichos requerimientos.
+                Plazo máximo de 5 días calendario para enviar los requerimientos
+                tras la contratación.
               </li>
             </ul>
           </div>
-
-          <div class="term-block">
+          <div class="term-card reveal delay-2">
             <h4><i class="fa-solid fa-clock"></i> 2. Tiempos y Retrasos</h4>
             <ul>
               <li>
-                Cualquier retraso en la entrega de información por parte del
-                cliente pausará inmediatamente el cronograma de desarrollo.
+                El retraso en entrega de información pausa el cronograma
+                inmediatamente.
               </li>
               <li>
-                Si el cliente inasiste a reuniones o retrasa aprobaciones sin
-                justificación, impidiendo finalizar el proyecto, se aplicará una
-                penalidad del 5% sobre el costo total por cada día extra
-                necesario.
+                Inasistencia a reuniones o aprobaciones sin justificación genera
+                una penalidad del 5% del costo total por día extra.
               </li>
             </ul>
           </div>
-
-          <div class="term-block">
-            <h4>
-              <i class="fa-solid fa-arrows-rotate"></i> 3. Revisiones y Cambios
-            </h4>
+          <div class="term-card reveal delay-3">
+            <h4><i class="fa-solid fa-rotate"></i> 3. Revisiones y Cambios</h4>
             <ul>
               <li>
-                El plan base incluye un máximo de
-                <strong>dos (2) rondas de ajustes</strong> sobre el diseño y
+                Máximo <strong>2 rondas de ajustes</strong> sobre el diseño y
                 contenido presentado.
               </li>
               <li>
-                Una vez aprobadas las rondas correspondientes, las solicitudes
-                de modificaciones adicionales o cambios estructurales fuera del
-                alcance inicial serán cotizadas por separado.
+                Modificaciones adicionales o cambios fuera del alcance inicial
+                se cotizan aparte.
               </li>
             </ul>
           </div>
-
-          <div class="term-block">
+          <div class="term-card reveal delay-1">
             <h4>
               <i class="fa-solid fa-money-check-dollar"></i> 4. Condiciones
               Económicas
             </h4>
             <ul>
               <li>
-                Para iniciar el desarrollo se requiere un
-                <strong>adelanto del 60%</strong> del monto total. El 40%
-                restante deberá ser cancelado el día de la entrega y aprobación
-                final del proyecto.
+                Se requiere un <strong>adelanto del 60%</strong> para iniciar.
+                El 40% se cancela en la entrega final.
               </li>
               <li>
-                Si el cliente decide cancelar el proyecto a la mitad del proceso
-                por motivos ajenos al desarrollador, el adelanto no será
-                reembolsable y se calculará el monto correspondiente al trabajo
-                avanzado.
+                Cancelación a mitad del proceso por parte del cliente: el
+                adelanto no es reembolsable.
               </li>
             </ul>
           </div>
-
-          <div class="term-block">
-            <h4>
-              <i class="fa-solid fa-comments"></i> 5. Comunicación Oficial
-            </h4>
+          <div class="term-card reveal delay-2">
+            <h4><i class="fa-solid fa-comments"></i> 5. Comunicación</h4>
             <ul>
               <li>
-                Se creará un grupo de WhatsApp que fungirá como único canal
-                oficial para solicitudes y envío de material.
+                Canal oficial: grupo de WhatsApp creado al iniciar el proyecto.
               </li>
               <li>
-                El horario de atención para consultas, reuniones y soporte
-                técnico es de
-                <strong>Lunes a Viernes, de 09:00 a 18:00 hrs</strong>. Toda
-                solicitud fuera de este horario será atendida el día hábil
-                siguiente.
+                Horario de atención:
+                <strong>Lunes a Viernes, 09:00–18:00 hrs</strong>. Fuera de
+                horario se atiende el siguiente día hábil.
               </li>
             </ul>
           </div>
-
-          <div class="term-block">
+          <div class="term-card reveal delay-3">
             <h4>
               <i class="fa-solid fa-copyright"></i> 6. Propiedad Intelectual
             </h4>
             <ul>
               <li>
-                Al liquidar el 100% del pago, el cliente obtiene el control
-                total y la propiedad de su sitio web.
+                Con el pago total, el cliente obtiene propiedad completa del
+                sitio.
               </li>
               <li>
-                El desarrollador retiene el derecho de exhibir el sitio web
-                finalizado en su portafolio profesional y utilizarlo con fines
-                de promoción comercial.
+                El desarrollador puede exhibir el proyecto en su portafolio con
+                fines comerciales.
               </li>
             </ul>
           </div>
         </div>
       </div>
-
-      <!-- Nota Técnica de Demostración -->
-      <div class="tech-notice">
-        <i class="fa-solid fa-code"></i>
-        <div>
-          <strong>Nota del Desarrollador:</strong> Este documento PDF fue
-          programado y diseñado desde cero como una Landing Page 100% responsiva
-          para demostrar la calidad del código. <br />
-          Puedes interactuar con la versión web funcional en:
-          <a
-            href="https://landing-page-lyart-three-70.vercel.app/"
-            target="_blank"
-            >https://landing-page-lyart-three-70.vercel.app/</a
-          >
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer class="doc-footer">
-        <div class="signature handwritten">José Luis Cuenca</div>
-        <p
-          style="
-            margin: 0;
-            color: var(--ink-light);
-            font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-          "
-        >
-          DESARROLLADOR WEB & AUTOMATIZADOR
-        </p>
-        <p
-          style="
-            margin: 0;
-            font-size: 0.85rem;
-            color: var(--ink-light);
-            margin-top: 5px;
-          "
-        >
-          <i class="fa-brands fa-whatsapp"></i> +51 954000387 &nbsp;|&nbsp;
-          <i class="fa-regular fa-envelope"></i> jlcg17042001@gmail.com
-        </p>
-      </footer>
     </div>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+    <footer class="footer" id="contacto">
+      <div class="footer-stripe"></div>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-name hw">José Luis Cuenca</div>
+          <div class="footer-role">Desarrollador Web & Automatizador</div>
+          <div class="footer-links">
+            <a
+              href="https://wa.me/51954000387"
+              target="_blank"
+              class="footer-link"
+            >
+              <i class="fa-brands fa-whatsapp"></i> +51 954 000 387
+            </a>
+            <a href="mailto:jlcg17042001@gmail.com" class="footer-link">
+              <i class="fa-regular fa-envelope"></i> jlcg17042001@gmail.com
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <a href="#servicios">Servicios</a>
+          <a href="#modulos">Módulos</a>
+          <a href="#terminos">Términos</a>
+          <a
+            href="https://wa.me/51954000387"
+            target="_blank"
+            style="color: var(--yellow)"
+            >Contratar</a
+          >
+        </nav>
+      </div>
+      <div class="footer-copy">
+        <span>© 2025 José Luis Cuenca · Todos los derechos reservados</span>
+        <span>Desarrollo Web &amp; Automatización · Perú</span>
+      </div>
+    </footer>
+
+    <script>
+      // ── Navbar scroll ──────────────────────────────
+      const nav = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          nav.classList.toggle("scrolled", window.scrollY > 40);
+        },
+        { passive: true },
+      );
+
+      // ── Hamburger ─────────────────────────────────
+      const ham = document.getElementById("hamburger");
+      const menu = document.getElementById("mobileMenu");
+      ham.addEventListener("click", () => {
+        ham.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.style.overflow = menu.classList.contains("open")
+          ? "hidden"
+          : "";
+      });
+      document
+        .querySelectorAll(".mobile-link, .mobile-menu .nav-cta")
+        .forEach((a) => {
+          a.addEventListener("click", () => {
+            ham.classList.remove("open");
+            menu.classList.remove("open");
+            document.body.style.overflow = "";
+          });
+        });
+
+      // ── Intersection Observer (reveal + scope items) ──
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(
+          ".reveal, .reveal-left, .reveal-right, .scope-item, .term-card, .module-card",
+        )
+        .forEach((el) => io.observe(el));
+
+      // ── Scope items stagger ────────────────────────
+      document.querySelectorAll(".scope-col").forEach((col) => {
+        col.querySelectorAll(".scope-item").forEach((item, i) => {
+          item.style.transitionDelay = `${i * 0.07}s`;
+        });
+      });
+    </script>
   </body>
 </html>
