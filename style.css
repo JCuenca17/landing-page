@@ -362,6 +362,16 @@ body {
 .btn-outline i {
   color: #25d366;
 }
+.btn-outline.btn-portafolio {
+  border-color: var(--yellow);
+  color: #fff;
+}
+.btn-outline.btn-portafolio i {
+  color: var(--yellow);
+}
+.btn-outline.btn-portafolio:hover {
+  background: rgba(254, 240, 138, 0.1);
+}
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
