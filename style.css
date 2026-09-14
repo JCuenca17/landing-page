@@ -1,3 +1,7 @@
+/* Fuentes alojadas en el sitio (subconjunto latin) */
+@font-face{font-family:'Caveat';font-style:normal;font-weight:600 700;font-display:swap;src:url(fonts/f-caveat-normal-600_700.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/f-inter-normal-400_800.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 /* ═══════════════════════════════════════════════════
     VARIABLES & RESET (WEB ORIGINAL)
 ═══════════════════════════════════════════════════ */
@@ -270,7 +274,6 @@ body {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 1.8rem;
-  opacity: 0;
   transform: translateY(16px);
   animation: fadeUp 0.6s 0.1s forwards;
 }
@@ -288,7 +291,6 @@ body {
   line-height: 1.02;
   color: #fff;
   margin-bottom: 1.2rem;
-  opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.7s 0.25s forwards;
 }
@@ -303,7 +305,6 @@ body {
   max-width: 480px;
   margin: 0 auto 2.5rem;
   line-height: 1.7;
-  opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.7s 0.4s forwards;
 }
@@ -313,7 +314,6 @@ body {
   gap: 1rem;
   justify-content: center;
   margin-bottom: 4rem;
-  opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.7s 0.55s forwards;
 }
@@ -379,7 +379,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  opacity: 0;
   animation: fadeUp 0.7s 0.7s forwards;
 }
 .stat-item {
@@ -632,7 +631,7 @@ body {
   transform: translateY(-3px);
   box-shadow: 4px 4px 0 var(--grid);
 }
-.term-card h4 {
+.term-card h3 {
   font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -645,7 +644,7 @@ body {
   margin-bottom: 0.8rem;
   border-bottom: 1px solid var(--grid);
 }
-.term-card h4 i {
+.term-card h3 i {
   color: var(--blue);
 }
 .term-card ul {
@@ -1177,14 +1176,14 @@ body {
     padding: 1.2rem !important;
     box-shadow: 4px 4px 0 #e2e8f0 !important;
   }
-  .term-card h4 {
+  .term-card h3 {
     font-size: 8.5pt !important;
     color: #0f172a !important;
     border-bottom: 1.5px solid #e2e8f0 !important;
     padding-bottom: 0.4rem !important;
     margin-bottom: 0.5rem !important;
   }
-  .term-card h4 i {
+  .term-card h3 i {
     color: #2563eb !important;
     display: inline-block !important;
     margin-right: 4px !important;
@@ -1244,4 +1243,15 @@ body {
     font-size: 8pt !important;
     page-break-inside: avoid !important;
   }
+}
+
+/* Íconos SVG (reemplazan Font Awesome) */
+i[class*="fa-"] { display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+.ico { width: 1em; height: 1em; fill: currentColor; display: block; }
+
+/* El hero entra solo con desplazamiento: el texto es visible desde el primer pintado */
+.hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions, .hero .hero-stats { animation-name: heroRise; }
+@keyframes heroRise { from { transform: translateY(16px); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions, .hero .hero-stats { animation: none; transform: none; }
 }
