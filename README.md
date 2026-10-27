@@ -14,3 +14,5 @@ Muestra tres paquetes con precio fijo (Starter, Business y Growth, desde S/ 350)
 ## Cómo está hecha
 
 HTML y CSS en un solo archivo cada uno, con un poco de JavaScript para el menú y las animaciones al hacer scroll. Las fuentes (Inter y Caveat) se sirven desde el propio sitio. Tiene metadatos para buscadores y redes, sitemap, `robots.txt` y manifest, y se despliega en Vercel sin paso de build.
+
+© 2026 José Luis Cuenca Gutiérrez. Todos los derechos reservados.
