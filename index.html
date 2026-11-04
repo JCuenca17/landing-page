@@ -87,34 +87,30 @@
       .stat span{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
       .stat:nth-child(1){background:var(--teal-soft)}.stat:nth-child(2){background:#FFE2DA}.stat:nth-child(3){background:var(--yellow-soft)}.stat:nth-child(4){background:var(--lilac)}
       /* paquetes: tabla comparativa */
-      .cmp{background:var(--paper);border:2px solid var(--ink);border-radius:28px;box-shadow:0 6px 0 var(--ink);overflow:hidden;--row:clamp(22px,calc(var(--u) * 4),36px)}
-      .cmp table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:clamp(12px,calc(var(--u) * 2.25),15px)}
-      .cmp col.f{width:38%}
-      .cmp th,.cmp td{padding:0 14px;height:var(--row);text-align:center;vertical-align:middle;border-bottom:1px solid var(--rule)}
-      .cmp th[scope="row"]{text-align:left;font-weight:500;color:var(--ink-2);line-height:1.25}
-      .cmp thead th{padding:clamp(10px,calc(var(--u) * 2.4),20px) 10px clamp(8px,calc(var(--u) * 1.6),14px);border-bottom:2px solid var(--ink);vertical-align:bottom}
-      .cmp thead th.pop{background:var(--yellow-soft)}
-      .cmp .corner{text-align:left;vertical-align:bottom;padding:clamp(12px,calc(var(--u) * 2.6),24px) 22px clamp(10px,calc(var(--u) * 1.8),16px);border-bottom:2px solid var(--ink)}
-      .cmp .corner h2{font-size:clamp(40px,calc(var(--u) * 10),80px)}
-      .cmp .corner p{margin:8px 0 0;font-size:clamp(12.5px,calc(var(--u) * 2.1),14.5px);color:var(--muted);line-height:1.45;max-width:26em}
-      .only-m{display:none}
-      .cmp .pp{white-space:nowrap}
-      .cmp tbody td:nth-child(3),.cmp tfoot td:nth-child(3){background:#FFFBEA}
-      .cmp .pn{display:block;font-family:var(--f-title);font-weight:400;text-transform:uppercase;font-size:clamp(18px,calc(var(--u) * 4),30px);line-height:1}
-      .cmp .pp{display:block;font-family:var(--f-title);font-weight:400;font-size:clamp(22px,calc(var(--u) * 6),46px);line-height:1;margin-top:4px}
-      .cmp .pp small{font-family:var(--f-body);font-size:.34em;font-weight:600;color:var(--muted);vertical-align:.9em;margin-right:3px}
-      .cmp .tag{display:inline-block;font:700 10.5px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:var(--coral);border:2px solid var(--ink);border-radius:999px;padding:4px 8px;margin-bottom:6px}
-      .cmp .pd{display:block;font:400 12.5px/1.35 var(--f-body);color:var(--muted);margin-top:6px;text-transform:none}
-      .cmp td{font-weight:600}
-      .cmp .all td{height:auto;padding:clamp(6px,calc(var(--u) * 1.4),12px) 14px;text-align:left;font-weight:500;color:var(--teal-ink);background:var(--teal-soft)!important;line-height:1.35}
-      .cmp .sep th,.cmp .sep td{border-top:2px solid var(--rule)}
-      .y,.no{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;vertical-align:middle}
-      .y{background:var(--teal)}.no{background:#ECEDE9}
-      .y::before{content:"";width:9px;height:5px;border:solid #fff;border-width:0 0 2.6px 2.6px;transform:translateY(-1px) rotate(-45deg)}
-      .no::before{content:"";width:8px;height:2px;background:#A3A8A5;border-radius:2px}
-      .cmp tfoot td{border-bottom:0;padding:clamp(8px,calc(var(--u) * 2),16px) 10px}
-      .cmp tfoot .btn{width:100%;padding:11px 10px;font-size:14px}
-      .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+      /* paquetes: tarjetas */
+      .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+      .card{background:var(--paper);border:2px solid var(--ink);border-radius:28px;padding:clamp(18px,calc(var(--u) * 3.4),28px);display:flex;flex-direction:column;gap:clamp(8px,calc(var(--u) * 1.6),14px);box-shadow:0 6px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+      .card:hover{transform:translateY(-6px) rotate(-.5deg);box-shadow:0 12px 0 var(--ink)}
+      .card:nth-child(3):hover{transform:translateY(-6px) rotate(.5deg)}
+      .card .ptop{display:flex;justify-content:space-between;align-items:center;gap:10px}
+      .card h3{font-family:var(--f-title);font-weight:400;text-transform:uppercase;font-size:clamp(24px,calc(var(--u) * 4.4),34px);margin:0;line-height:1}
+      .card .price{font-family:var(--f-title);line-height:1;font-size:clamp(40px,calc(var(--u) * 9),68px);white-space:nowrap}
+      .card .price small{font-family:var(--f-body);font-size:.32em;font-weight:600;vertical-align:1em;margin-right:3px;opacity:.7}
+      .card .d{margin:0;color:var(--ink-2);font-size:clamp(13px,calc(var(--u) * 2.15),15px);line-height:1.4}
+      .chips{display:flex;flex-wrap:wrap;gap:6px}
+      .chips span{font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px;background:rgba(255,255,255,.75)}
+      .card .plus{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-ink)}
+      .ck{list-style:none;margin:0;padding:0;display:grid;gap:clamp(5px,calc(var(--u) * 1),9px);flex:1;align-content:start}
+      .ck li{display:flex;gap:9px;align-items:flex-start;line-height:1.3;font-size:clamp(13px,calc(var(--u) * 2.15),15px)}
+      .ck li::before{content:"";flex:none;width:19px;height:19px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+      .card .btn{width:100%;gap:.3em}
+      .card.s1{background:var(--teal-soft)}
+      .card.s2{background:var(--ink);color:#fff;transform:translateY(-10px);box-shadow:0 6px 0 var(--coral)}
+      .card.s2:hover{transform:translateY(-16px);box-shadow:0 12px 0 var(--coral)}
+      .card.s2 .d{color:#D6D9D7}.card.s2 .plus{color:var(--yellow)}.card.s2 .chips span{background:#2A2F2D;color:#fff}
+      .card.s3{background:var(--yellow-soft)}
+      .card .tag{background:var(--coral);color:var(--ink);font:700 11px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 10px;white-space:nowrap}
+      @media (min-width:761px) and (max-height:820px){.card .d{display:none}.card{gap:clamp(6px,calc(var(--u) * 1.3),12px)}.cards{margin-top:6px}}
       /* no incluye */
       .scope{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
       .scope div{background:var(--paper);border:1px solid var(--rule);border-radius:22px;padding:clamp(14px,calc(var(--u) * 3),24px);display:flex;flex-direction:column;gap:8px}
@@ -163,10 +159,10 @@
       @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero .t .row{animation:none}html{scroll-behavior:auto}}
       /* tablet */
       @media (max-width:1000px){
+        .cards{gap:12px}.card{padding:16px}.card .ptop{flex-wrap:wrap;gap:6px}.card .tag{font-size:9.5px;padding:4px 7px}
         .scope{grid-template-columns:repeat(2,minmax(0,1fr))}
         .scope div:last-child{grid-column:1/-1}
         .terms{grid-template-columns:repeat(2,minmax(0,1fr))}
-        .cmp .pd{display:none}
       }
       /* celular */
       @media (max-width:760px){
@@ -182,23 +178,26 @@
         .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
         .stat span{font-size:10.5px}
         .cta{gap:10px}.cta .btn{width:100%;padding:12px 18px}
-        .cmp{border-radius:20px;--row:clamp(24px,calc(var(--u) * 4.6),34px)}
-        .only-m{display:block}
-        .cmp .corner{padding:0;border-bottom:2px solid var(--ink)}
-        .cmp .corner>*{display:none}
-        .cmp col.f{width:37%}
-        .cmp .pn{font-size:15px}
-        .cmp .pp{font-size:19px}
-        .cmp .pp small{font-size:9px;margin-right:1px}
-        .cmp th,.cmp td{padding:0 6px}
-        .cmp th[scope="row"]{padding-left:10px;font-size:11.5px}
-        .cmp td{font-size:11.5px}
-        .cmp thead th{padding:10px 3px 8px}
-        .cmp .tag{font-size:8.5px;padding:3px 5px;letter-spacing:.04em;border-width:1.5px}
-        .cmp .all td{font-size:10.5px;padding:5px 10px;line-height:1.3}
-        .y,.no{width:17px;height:17px}
-        .cmp tfoot td{padding:8px 3px}
-        .cmp tfoot .btn{padding:8px 4px;font-size:12px;box-shadow:0 2px 0 var(--ink);gap:5px}
+        .s-head{margin-bottom:10px}
+        #paquetes .s-head p{display:none}
+        .cards{grid-template-columns:1fr;gap:12px}
+        .card{padding:12px 14px;gap:6px;border-radius:20px;box-shadow:0 4px 0 var(--ink)}
+        .card.s2{transform:none;box-shadow:0 4px 0 var(--coral)}
+        .card:hover,.card.s2:hover,.card:nth-child(3):hover{transform:none}
+        .card .row1{display:flex;align-items:center;justify-content:space-between;gap:8px}
+        .card h3{font-size:22px}.card .price{font-size:28px}
+        .card .d{display:none}
+        .card .chips span{font-size:10.5px;padding:3px 8px}
+        .card .plus{font-size:10.5px}
+        .ck{grid-template-columns:1fr 1fr;gap:4px 10px}.ck li{font-size:11.5px;gap:6px}.ck li::before{width:15px;height:15px;background-size:10px}
+        .card{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:10px;cursor:pointer}
+        .card .row1{grid-column:1;grid-row:1}
+        .card .btn{grid-column:2;grid-row:1;width:auto;padding:8px 14px;font-size:12.5px;box-shadow:0 3px 0 var(--ink)}
+        .card .btn .pn{display:none}
+        .card .chips,.card .plus,.card .ck{grid-column:1/-1}
+        .card:not(.open) .chips,.card:not(.open) .plus,.card:not(.open) .ck{display:none}
+        .card .ptop{justify-content:flex-start}
+        .card .tag{font-size:9px;padding:4px 7px}
         .scope{grid-template-columns:1fr;gap:8px}
         .scope div{flex-direction:row;align-items:flex-start;padding:12px 14px;gap:12px;border-radius:18px}
         .scope .x{width:28px;height:28px;flex:none}
@@ -221,6 +220,7 @@
       }
       @media (max-width:760px) and (max-height:700px){
         .s-head p{display:none}
+        .card{gap:5px;padding:10px 12px}
         .s-head{margin-bottom:10px}
         .scope{gap:6px}.scope div{padding:9px 12px;gap:10px}.scope .x{width:24px;height:24px}
         .scope b{font-size:13px}.scope span{font-size:11.5px;line-height:1.35}
@@ -233,11 +233,10 @@
         @page{margin:12mm}
         :root{--avail:auto;--u:7px}
         body{background:#fff;font-size:12px}
-        .top,.menu,.cta,.reach,.cmp tfoot,.only-m{display:none!important}
+        .top,.menu,.cta,.reach,.card .btn{display:none!important}
         .rv{opacity:1!important;transform:none!important;transition:none!important}
         .screen{min-height:0;padding:14px 0;break-inside:avoid}
         #modulos{background:#fff}
-        .cmp,.mod{box-shadow:none!important}
         .term ul{display:grid!important}
         .term-h .chev{display:none!important}
         .contact{background:#fff;border:2px solid var(--ink);padding:20px}
@@ -289,23 +288,28 @@
     </div></header>
 
     <section class="screen" id="paquetes"><div class="wrap">
-      <div class="s-head rv only-m"><h2 class="t">Paquetes<em>.</em></h2><p>Precio fijo, con reunión virtual de entrega (30 min) y soporte técnico gratuito.</p></div>
-      <div class="cmp rv"><table>
-        <caption class="vh">Comparación de los paquetes Starter, Business y Growth</caption>
-        <colgroup><col class="f"><col><col><col></colgroup>
-        <thead><tr><td class="corner"><h2 class="t">Paquetes<em>.</em></h2><p>Tres paquetes con precio fijo. Todos incluyen reunión virtual de entrega (30 min) y soporte técnico gratuito.</p></td>
-          <th scope="col"><span class="pn">Starter</span><span class="pp"><small>S/</small>350</span><span class="pd">Una sección que presenta tu oferta y lleva al cliente directo a WhatsApp.</span></th>
-          <th scope="col" class="pop"><span class="tag">Más elegido</span><span class="pn">Business</span><span class="pp"><small>S/</small>700</span><span class="pd">Landing completa para captar clientes con formulario y SEO básico.</span></th>
-          <th scope="col"><span class="pn">Growth</span><span class="pp"><small>S/</small>1 050</span><span class="pd">Todo para vender y medir: textos persuasivos, píxel de Meta y registro de leads.</span></th>
-        </tr></thead>
-        <tbody id="rows"></tbody>
-        <tfoot><tr><td></td>
-          <td><a class="btn dark" data-plan="Starter">Elegir</a></td>
-          <td><a class="btn coral" data-plan="Business">Elegir</a></td>
-          <td><a class="btn dark" data-plan="Growth">Elegir</a></td>
-        </tr></tfoot>
-      </table></div>
-    </div></section>
+  <div class="s-head rv"><h2 class="t">Paquetes<em>.</em></h2><p>Precio fijo, con reunión virtual de entrega (30 min) y soporte técnico gratuito.</p></div>
+  <div class="cards" id="cards">
+    <article class="rv card s1"><div class="row1"><div class="ptop"><h3>Starter</h3></div><div class="price"><small>S/</small>350</div></div>
+      <p class="d">Una sección que presenta tu oferta y lleva al cliente directo a WhatsApp.</p>
+      <div class="chips"><span>4 días</span><span>1 revisión</span><span>7 días de soporte</span></div>
+      <span class="plus">Incluye</span>
+      <ul class="ck"><li>1 sección</li><li>Diseño 100% responsive</li><li>Carga de tu contenido</li><li>Botón de WhatsApp con mensaje predefinido</li><li>Íconos de redes sociales</li><li>Optimización de velocidad</li></ul>
+      <a class="btn dark" data-plan="Starter">Elegir<span class="pn">Starter</span></a></article>
+    <article class="rv card s2"><div class="row1"><div class="ptop"><h3>Business</h3><span class="tag">Más elegido</span></div><div class="price"><small>S/</small>700</div></div>
+      <p class="d">Landing completa para captar clientes con formulario y SEO básico.</p>
+      <div class="chips"><span>6 días</span><span>2 revisiones</span><span>15 días de soporte</span></div>
+      <span class="plus">Todo lo de Starter, más</span>
+      <ul class="ck"><li>Hasta 5 secciones</li><li>Formulario de contacto</li><li>SEO básico on-page</li></ul>
+      <a class="btn coral" data-plan="Business">Elegir<span class="pn">Business</span></a></article>
+    <article class="rv card s3"><div class="row1"><div class="ptop"><h3>Growth</h3></div><div class="price"><small>S/</small>1 050</div></div>
+      <p class="d">Todo para vender y medir: textos persuasivos, píxel de Meta y registro de leads.</p>
+      <div class="chips"><span>10 días</span><span>3 revisiones</span><span>30 días de soporte</span></div>
+      <span class="plus">Todo lo de Business, más</span>
+      <ul class="ck"><li>Copywriting persuasivo</li><li>Instalación del Píxel de Meta</li><li>Mini-CRM: leads en Google Sheets</li><li>Publicación en tu hosting</li></ul>
+      <a class="btn dark" data-plan="Growth">Elegir<span class="pn">Growth</span></a></article>
+  </div>
+</div></section>
 
     <section class="screen" id="no-incluye"><div class="wrap">
       <div class="s-head rv"><h2 class="t">No incluye<em>.</em></h2><p>Lo que ningún paquete cubre, para que no haya sorpresas.</p></div>
@@ -367,23 +371,11 @@
 
     <script>
       const MAIL = "jlcg17042001@gmail.com";
-      const yes = '<span class="y" role="img" aria-label="Incluido"></span>', no = '<span class="no" role="img" aria-label="No incluido"></span>';
-      const ROWS = [
-        ["Secciones", "1", "Hasta 5", "Hasta 5"],
-        ["Entrega", "4 días", "6 días", "10 días"],
-        ["Rondas de revisión", "1", "2", "3"],
-        ["Soporte técnico", "7 días", "15 días", "30 días"],
-        ["Formulario de contacto", 0, 1, 1],
-        ["SEO básico on-page", 0, 1, 1],
-        ["Copywriting persuasivo", 0, 0, 1],
-        ["Instalación del Píxel de Meta", 0, 0, 1],
-        ["Mini-CRM: leads en Google Sheets", 0, 0, 1],
-        ["Publicación en tu hosting", 0, 0, 1]
-      ];
-      const cell = v => typeof v === "number" ? (v ? yes : no) : v;
-      document.getElementById("rows").innerHTML =
-        `<tr class="all"><td colspan="4">En los tres: diseño 100% responsive, carga de tu contenido, botón de WhatsApp con mensaje predefinido, íconos de redes sociales y optimización de velocidad.</td></tr>` +
-        ROWS.map((r, i) => `<tr${i === 4 ? ' class="sep"' : ""}><th scope="row">${r[0]}</th>${r.slice(1).map(v => `<td>${cell(v)}</td>`).join("")}</tr>`).join("");
+      const cards = [...document.querySelectorAll(".card")], small = matchMedia("(max-width:760px)");
+      cards.forEach(c => c.addEventListener("click", e => { if (!small.matches || e.target.closest(".btn")) return; cards.forEach(o => o.classList.toggle("open", o === c)); syncCards(); }));
+      function syncCards() { cards.forEach(c => { const h = c.querySelector(".row1"); if (small.matches) { h.setAttribute("role", "button"); h.tabIndex = 0; h.setAttribute("aria-expanded", String(c.classList.contains("open"))); } else { h.removeAttribute("role"); h.removeAttribute("tabindex"); h.removeAttribute("aria-expanded"); } }); }
+      cards.forEach(c => c.querySelector(".row1").addEventListener("keydown", e => { if (small.matches && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); c.click(); } }));
+      cards[1].classList.add("open"); syncCards(); small.addEventListener("change", syncCards);
       document.querySelectorAll("[data-plan]").forEach(a => {
         const p = a.dataset.plan;
         a.href = `mailto:${MAIL}?subject=${encodeURIComponent("Paquete " + p + " de landing page")}&body=${encodeURIComponent("Hola José Luis, me interesa el paquete " + p + " de landing page.")}`;
@@ -423,7 +415,7 @@
       addEventListener("beforeprint", showAll);
 
       const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .1 }) : null;
-      document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (el.matches(".term,.mod,.scope>div") ? (i % 3) * 60 : 0) + "ms"; io ? io.observe(el) : el.classList.add("in"); });
+      document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (el.matches(".term,.mod,.scope>div,.card") ? (i % 3) * 60 : 0) + "ms"; io ? io.observe(el) : el.classList.add("in"); });
     </script>
   </body>
 </html>

@@ -4,7 +4,7 @@ La página con la que ofrezco landing pages y automatizaciones para negocios: [p
 
 ![Portada](docs/portada.jpg)
 
-Compara en una tabla los tres paquetes con precio fijo (Starter, Business y Growth, desde S/ 350) y muestra lo que no incluyen, los módulos opcionales y los términos de trabajo. Cada sección cabe en la pantalla, del celular al monitor. El contacto es por correo: cada botón "Elegir" abre un correo con el paquete elegido, y la página tiene estilos de impresión para guardarla como propuesta en PDF desde el navegador.
+Muestra los tres paquetes con precio fijo (Starter, Business y Growth, desde S/ 350), cada uno con lo que agrega al anterior, y además lo que no incluyen, los módulos opcionales y los términos de trabajo. Cada sección cabe en la pantalla, del celular al monitor. El contacto es por correo: cada botón "Elegir" abre un correo con el paquete elegido, y la página tiene estilos de impresión para guardarla como propuesta en PDF desde el navegador.
 
 <p>
 <img src="docs/paquetes.jpg" alt="Paquetes y precios" width="70%">
