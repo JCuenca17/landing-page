@@ -32,6 +32,8 @@
     <link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://portafoliofreelance-jlcg.vercel.app/#servicio", "name": "José Luis Cuenca · Desarrollo Web & Automatización", "url": "https://portafoliofreelance-jlcg.vercel.app/", "image": "https://portafoliofreelance-jlcg.vercel.app/og.jpg", "logo": "https://portafoliofreelance-jlcg.vercel.app/icons/icon-512.png", "description": "Landing pages de alta conversión y automatizaciones para negocios en Perú. Diseño responsive, WhatsApp, formularios y píxel de Meta. Tres paquetes desde S/ 350, entrega en 4 a 10 días y hasta 30 días de soporte. José Luis Cuenca, Arequipa.", "email": "jlcg17042001@gmail.com", "priceRange": "S/ 350 - S/ 1050", "areaServed": {"@type": "Country", "name": "Perú"}, "address": {"@type": "PostalAddress", "addressLocality": "Arequipa", "addressCountry": "PE"}, "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}, "founder": {"@id": "https://portafolio-jlcg.vercel.app/#persona"}, "sameAs": ["https://portafolio-jlcg.vercel.app/", "https://github.com/JCuenca17", "https://www.linkedin.com/in/josecuencag/"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Servicios", "itemListElement": [{"@type": "Offer", "price": "350", "priceCurrency": "PEN", "itemOffered": {"@type": "Service", "name": "Landing Page Starter", "description": "Una sección responsive con botón de WhatsApp. Entrega en 4 días, 1 revisión, 7 días de soporte."}}, {"@type": "Offer", "price": "700", "priceCurrency": "PEN", "itemOffered": {"@type": "Service", "name": "Landing Page Business", "description": "Hasta 5 secciones, formulario, WhatsApp y SEO básico. Entrega en 6 días, 2 revisiones, 15 días de soporte."}}, {"@type": "Offer", "price": "1050", "priceCurrency": "PEN", "itemOffered": {"@type": "Service", "name": "Landing Page Growth", "description": "Hasta 5 secciones, copywriting, píxel de Meta, leads en Google Sheets y publicación. Entrega en 10 días, 3 revisiones, 30 días de soporte."}}, {"@type": "Offer", "price": "300", "priceCurrency": "PEN", "itemOffered": {"@type": "Service", "name": "Panel de Autogestión", "description": "Edita precios, textos y fotos desde una hoja de cálculo."}}, {"@type": "Offer", "price": "50", "priceCurrency": "PEN", "itemOffered": {"@type": "Service", "name": "Sección o pestaña extra"}}]}}, {"@type": "Person", "@id": "https://portafolio-jlcg.vercel.app/#persona", "name": "José Luis Cuenca Gutiérrez", "url": "https://portafolio-jlcg.vercel.app/", "jobTitle": "Desarrollador de Software"}, {"@type": "WebSite", "@id": "https://portafoliofreelance-jlcg.vercel.app/#web", "url": "https://portafoliofreelance-jlcg.vercel.app/", "name": "José Luis Cuenca · Desarrollo Web & Automatización", "inLanguage": "es-PE"}]}</script>
 
+    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <style>
       @font-face{font-family:"Anton";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/anton-latin.woff2) format("woff2")}
       @font-face{font-family:"Sora";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/sora-latin.woff2) format("woff2")}
@@ -150,6 +152,11 @@
       footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-top:calc(var(--u) * 3);font-size:13px;color:var(--muted)}
       footer a{color:var(--ink);font-weight:600}
             .print-note{display:none}
+      .ico.wa,svg.wa{fill:currentColor;stroke:none}
+      .wa-float{position:fixed;right:18px;bottom:18px;z-index:15;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;border:2px solid var(--ink);box-shadow:0 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+      .wa-float:hover{transform:translateY(-3px) rotate(-6deg);box-shadow:0 7px 0 var(--ink)}
+      .wa-float:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+      .wa-float svg{width:30px;height:30px}
       /* animación al aparecer */
       .rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
       .rv.in{opacity:1;transform:none}
@@ -160,6 +167,7 @@
       /* tablet */
       @media (max-width:1000px){
         .screen:not(.hero){min-height:0;padding:clamp(28px,5vh,48px) 0}
+        .term ul{font-size:13px;gap:4px}.term{padding:16px 18px}
         .cards{gap:12px}.card{padding:16px}.card .ptop{flex-wrap:wrap;gap:6px}.card .tag{font-size:9.5px;padding:4px 7px}
         .scope{grid-template-columns:repeat(2,minmax(0,1fr))}
         .scope div:last-child{grid-column:1/-1}
@@ -217,9 +225,10 @@
         .term .n{font-size:24px}.term h3{font-size:15px}
         .term ul{display:none;margin:0;padding:0 16px 14px 32px;font-size:13px}
         .term.open ul{display:grid}
-        .contact{border-radius:26px}
-        .reach{gap:8px}.reach .btn{flex:1 1 40%;padding:11px 12px;font-size:13px}.reach #mailbtn{flex-basis:100%}
-        footer{flex-direction:column;gap:2px;font-size:12px}
+        .contact{border-radius:26px;padding:26px 18px}
+        .reach{gap:8px}.reach .btn{flex:1 1 40%;padding:11px 12px;font-size:13px}.reach .wa-btn{flex-basis:100%;order:-2}.reach #mailbtn{flex-basis:100%;order:-1}.reach #copy{display:none}
+        footer{flex-direction:column;gap:2px;font-size:12px;padding-bottom:70px}
+        .wa-float{right:12px;bottom:12px;width:52px;height:52px}.wa-float svg{width:27px;height:27px}
       }
       @media (max-width:760px) and (max-height:700px){
         .s-head p{display:none}
@@ -236,7 +245,7 @@
         @page{margin:12mm}
         :root{--avail:auto;--u:7px}
         body{background:#fff;font-size:12px}
-        .top,.menu,.cta,.reach,.card .btn{display:none!important}
+        .top,.menu,.cta,.reach,.card .btn,.wa-float{display:none!important}
         .rv{opacity:1!important;transform:none!important;transition:none!important}
         .screen{min-height:0;padding:14px 0;break-inside:avoid}
         #modulos{background:#fff}
@@ -250,6 +259,7 @@
   <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
       <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></symbol>
     </svg>
 
@@ -347,9 +357,9 @@
       <div class="s-head rv"><h2 class="t">Términos<em>.</em></h2><p>Políticas claras para una colaboración sin sorpresas.</p></div>
       <div class="terms" id="terms">
         <article class="term rv"><span class="term-h"><span class="n">01</span><h3>Entrega de materiales</h3></span><ul><li>El plazo NO inicia con el pago, sino cuando el cliente envíe el 100% del material.</li><li>Plazo máximo de 5 días calendario para enviar los requerimientos.</li></ul></article>
-        <article class="term rv"><span class="term-h"><span class="n">02</span><h3>Tiempos y retrasos</h3></span><ul><li>El retraso en entrega de información pausa el cronograma inmediatamente.</li><li>Inasistencia a reuniones genera penalidad del 5% del costo por día.</li></ul></article>
+        <article class="term rv"><span class="term-h"><span class="n">02</span><h3>Tiempos y retrasos</h3></span><ul><li>El retraso en entrega de información pausa el cronograma inmediatamente.</li><li>Si no puedes asistir a una reunión, se reprograma y la fecha de entrega se mueve los mismos días.</li></ul></article>
         <article class="term rv"><span class="term-h"><span class="n">03</span><h3>Revisiones y cambios</h3></span><ul><li>1, 2 o 3 rondas de ajustes según el paquete (Starter, Business o Growth).</li><li>Modificaciones fuera del alcance inicial se cotizan aparte.</li></ul></article>
-        <article class="term rv"><span class="term-h"><span class="n">04</span><h3>Condiciones económicas</h3></span><ul><li>Se requiere un adelanto del 60% para iniciar. El 40% a la entrega.</li><li>Cancelación a mitad del proceso: el adelanto no es reembolsable.</li></ul></article>
+        <article class="term rv"><span class="term-h"><span class="n">04</span><h3>Condiciones económicas</h3></span><ul><li>Se requiere un adelanto del 60% para iniciar. El 40% a la entrega.</li><li>Si cancelas a mitad del proceso, se cobra solo el trabajo hecho hasta ese momento y te entrego ese avance; si el adelanto supera ese monto, te devuelvo la diferencia.</li></ul></article>
         <article class="term rv"><span class="term-h"><span class="n">05</span><h3>Comunicación</h3></span><ul><li>Canal oficial: grupo de WhatsApp creado al iniciar el proyecto.</li><li>Atención: lunes a viernes, 09:00–18:00 hrs.</li><li>Si contratas por una plataforma freelance, el pago, los mensajes y las cancelaciones siguen las reglas de esa plataforma.</li></ul></article>
         <article class="term rv"><span class="term-h"><span class="n">06</span><h3>Propiedad intelectual</h3></span><ul><li>Con el pago total, el cliente obtiene propiedad completa del sitio.</li><li>El desarrollador puede exhibir el proyecto en su portafolio.</li></ul></article>
       </div>
@@ -359,17 +369,19 @@
       <div class="contact rv">
         <span class="eyebrow">Contacto</span>
         <h2 class="t">¿Empezamos tu <mark>landing</mark>?</h2>
-        <p>Escríbeme por correo con lo que necesitas y te respondo con el paquete que mejor encaja con tu negocio.</p>
+        <p>Escríbeme por WhatsApp o por correo con lo que necesitas y te respondo con el paquete que mejor encaja con tu negocio.</p>
         <div class="reach">
-          <a class="btn dark" id="mailbtn" href="mailto:jlcg17042001@gmail.com?subject=Landing%20page"><svg class="ico"><use href="#i-mail"/></svg>jlcg17042001@gmail.com</a>
+          <a class="btn dark wa-btn" href="https://wa.me/josecuencag?text=Hola%20Jos%C3%A9%20Luis%2C%20vi%20tu%20p%C3%A1gina%20de%20servicios%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="ico wa"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="btn" id="mailbtn" href="mailto:jlcg17042001@gmail.com?subject=Landing%20page"><svg class="ico"><use href="#i-mail"/></svg>jlcg17042001@gmail.com</a>
           <button class="btn" type="button" id="copy">Copiar correo</button>
           <button class="btn" type="button" id="print"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>Guardar propuesta en PDF</button>
         </div>
       </div>
       <p class="print-note">Propuesta generada desde mi landing page. Versión interactiva: <strong>https://portafoliofreelance-jlcg.vercel.app/</strong> · Proyectos realizados: <strong>https://portafolio-jlcg.vercel.app/</strong> · Correo: <strong>jlcg17042001@gmail.com</strong></p>
-      <footer><span>© 2026 José Luis Cuenca · Todos los derechos reservados</span><span>Desarrollo web y automatización · Arequipa, Perú · <a href="https://portafolio-jlcg.vercel.app/" target="_blank" rel="noopener">Portafolio</a></span></footer>
+      <footer><span>© 2026 José Luis Cuenca · Todos los derechos reservados</span><span>Desarrollo web y automatización · Arequipa, Perú · <a href="privacidad.html">Privacidad</a> · <a href="https://portafolio-jlcg.vercel.app/" target="_blank" rel="noopener">Portafolio</a></span></footer>
     </div></section>
     </main>
+    <a class="wa-float" href="https://wa.me/josecuencag?text=Hola%20Jos%C3%A9%20Luis%2C%20vi%20tu%20p%C3%A1gina%20de%20servicios%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribirme por WhatsApp"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
 
 
     <script>
