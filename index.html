@@ -159,6 +159,7 @@
       @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero .t .row{animation:none}html{scroll-behavior:auto}}
       /* tablet */
       @media (max-width:1000px){
+        .screen:not(.hero){min-height:0;padding:clamp(28px,5vh,48px) 0}
         .cards{gap:12px}.card{padding:16px}.card .ptop{flex-wrap:wrap;gap:6px}.card .tag{font-size:9.5px;padding:4px 7px}
         .scope{grid-template-columns:repeat(2,minmax(0,1fr))}
         .scope div:last-child{grid-column:1/-1}
@@ -167,6 +168,8 @@
       /* celular */
       @media (max-width:760px){
         :root{--nav:60px}
+        .screen:not(.hero){padding:24px 0}
+        #contacto{padding-bottom:16px}
         .wrap{width:calc(100% - 28px)}
         .logo{font-size:26px}
         .links,.top .btn{display:none}
